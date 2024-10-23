@@ -26,26 +26,26 @@ function createCard() {
       <h1>IL TUO BIGLIETTO</h1>
       <div class="card">
         <h4 class="mt-4">DETTAGLIO PASSEGGERI</h4>
-        <div class="row ticket">
-          <div class="col-3">
+        <div class="row ticket mb-4">
+          <div class="col-3 name">
             <h5>NOME PASSEGGERO</h5>
-            <p>${nome.value}</p>
+            <h5 class="mt-4">${nome.value}</h5>
           </div>
           <div class="col-2">
             <h5>Offerta</h5>
-            <p>${scelta.value}</p>
+            <p class="mt-4">${scelta.value}</p>
           </div>
           <div class="col-2">
             <h5>Carrozza</h5>
-            <p>5</p>
+            <p class="mt-4">5</p>
           </div>
           <div class="col-2">
             <h5>Codice CP</h5>
-            <p>92911</p>
+            <p class="mt-4">92911</p>
           </div>
-          <div class="col-2">
+          <div class="col-3">
             <h5>Costo biglietto</h5>
-            <p>${prezzo.toFixed(2)}€</p>
+            <p class="mt-4">${prezzo.toFixed(2)}€</p>
           </div>
         </div>
       </div>`;
