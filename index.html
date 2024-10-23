@@ -12,22 +12,35 @@
 </head>
 <body>
 
-  <form>
-    <input class="form-control" type="text" aria-label="default input example" id="nome" required>
-    <input class="form-control" type="text" aria-label="default input example" id="distanza" required>
-    <select class="form-select" aria-label="Default select example" id="scelta">
-      <option value="Minorenne">Minorenne</option>
-      <option value="Standard">Standard</option>
-      <option value="Over 65">Over 65</option>
-    </select>
+  <h1 class="title">CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
 
+  <form class="container form">
+    <div class="row mb-4 main-div">
+      <div class="col-4 mt-4">
+        <label for="nome" class="form-label">Nome e Cognome</label>
+        <input class="form-control" type="text" aria-label="default input example" id="nome" required>
+      </div>
+      <div class="col-4 mt-4">
+        <label for="distanza" class="form-label">Km da percorrere</label>
+        <input class="form-control" type="number" aria-label="default input example" id="distanza" required>
+      </div>
+      <div class="col-4 mt-4">
+        <label for="scelta" class="form-label">Fascia d'età</label>
+        <select class="form-select" aria-label="Default select example" id="scelta">
+          <option value="Standard">Standard</option>
+          <option value="Minorenne">Minorenne</option>
+          <option value="Over 65">Over 65</option>
+        </select>
+      </div>
+    </div>
     
-    <button type="submit" class="btn btn-primary" id="primario">1</button>
-    <button type="button" class="btn btn-primary" id="secondario">2</button>
+    <button type="submit" class="btn btn-primary mt-4" id="genera">Genera</button>
+    <button type="button" class="btn btn-primary mt-4 ms-4" id="annulla">Annulla</button>
 
   </form>
 
-  <div id="card-space"></div>
+  <div id="card-space" class="container">
+  </div>
 
   <script src="script.js"></script>
 </body>

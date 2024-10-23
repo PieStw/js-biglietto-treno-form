@@ -1,38 +1,57 @@
 function clear() {
     document.getElementById("nome").value = "";
     document.getElementById("distanza").value = "";
-    document.getElementById("scelta").value = "Minorenne";
+    document.getElementById("scelta").value = "Standard"; 
+    document.getElementById("card-space").innerHTML = ""
+    console.log("ciao");
 }
 
 function createCard() {
+    event.preventDefault();
+
     const nome = document.getElementById("nome");
     const distanza = document.getElementById("distanza");
     const scelta = document.getElementById("scelta");
-    
-    if (nome.value.trim() === "" || distanza.value.trim() === "") return;
 
-    let prezzo = parseFloat(distanza.value) * 0.21;
-
+    let prezzo = distanza.value * 0.21;
 
     if (scelta.value === "Minorenne") {
-        prezzo = prezzo - (prezzo * 0.20); 
+        prezzo -= prezzo * 0.20; 
     } else if (scelta.value === "Over 65") {
-        prezzo = prezzo - (prezzo * 0.40); 
+        prezzo -= prezzo * 0.40; 
     }
 
-    const card = `<div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">NOME PASSEGGERO: ${nome.value}</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Biglietto: ${scelta.value}</h6>
-                        <p class="card-text">Prezzo: €${prezzo.toFixed(2)}</p>
-                    </div>
-                </div>`;
-
+    // Create the card content
+    const card = `
+      <h1>IL TUO BIGLIETTO</h1>
+      <div class="card">
+        <h4 class="mt-4">DETTAGLIO PASSEGGERI</h4>
+        <div class="row ticket">
+          <div class="col-3">
+            <h5>NOME PASSEGGERO</h5>
+            <p>${nome.value}</p>
+          </div>
+          <div class="col-2">
+            <h5>Offerta</h5>
+            <p>${scelta.value}</p>
+          </div>
+          <div class="col-2">
+            <h5>Carrozza</h5>
+            <p>5</p>
+          </div>
+          <div class="col-2">
+            <h5>Codice CP</h5>
+            <p>92911</p>
+          </div>
+          <div class="col-2">
+            <h5>Costo biglietto</h5>
+            <p>${prezzo.toFixed(2)}€</p>
+          </div>
+        </div>
+      </div>`;
 
     document.getElementById("card-space").innerHTML += card;
-
-    clear();
 }
 
-document.getElementById("primario").addEventListener("click", createCard);
-document.getElementById("secondario").addEventListener("click", clear);
+document.getElementById("genera").addEventListener("click", createCard);
+document.getElementById("annulla").addEventListener("click", clear);
